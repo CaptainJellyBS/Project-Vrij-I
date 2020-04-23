@@ -24,10 +24,11 @@ public class Movement : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             moveDirection *= speed;
+            moveDirection.y = jumpSpeed;
 
             if (Input.GetButton("Jump"))
             {
-                moveDirection.y = jumpSpeed;
+                moveDirection.y = 2*jumpSpeed;
             }
         }
 
