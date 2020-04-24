@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    //Class taken from Unity characterController scripting API
+    //Class partly taken from Unity characterController scripting API
     CharacterController characterController;
 
     public float speed = 6.0f;
@@ -22,18 +22,27 @@ public class Movement : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection *= speed;
-            moveDirection.y = jumpSpeed;
-
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = 2*jumpSpeed;
-            }
+            Move();
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
-
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void Move()
+    {
+
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        moveDirection *= speed;
+
+        if ((Input.GetAxis("Horizontal") + Input.GetAxis("Vertical") != 0))
+        {
+            moveDirection.y = jumpSpeed;
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            moveDirection.y = 2 * jumpSpeed;
+        }
     }
 }
