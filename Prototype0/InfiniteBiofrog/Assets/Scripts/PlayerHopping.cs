@@ -17,6 +17,8 @@ public class PlayerHopping : MonoBehaviour
     public GameObject splat;
     public GameObject newPlayer;
 
+    float initialAngle = 45;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,16 +70,11 @@ public class PlayerHopping : MonoBehaviour
         {
             jumpCharge = Mathf.Min(jumpCharge + 0.05f, 7.5f);
         }
-
         if (Input.GetMouseButtonUp(1) && grounded)
         {
-            rb.AddForce((transform.forward + (Vector3.up * 1.5f)) * jumpCharge, ForceMode.Impulse);
-            grounded = false;
-            Instantiate(footstepObj, transform.position + (transform.rotation * new Vector3(0.25f, 0, 0)), transform.rotation);
-            Instantiate(footstepObj, transform.position + (transform.rotation * new Vector3(-0.25f, 0, 0)), transform.rotation);
+            LongJump();
         }
-
-        if(Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(KeyCode.End))
         {
             Die();
         }
@@ -119,6 +116,65 @@ public class PlayerHopping : MonoBehaviour
         int r = Random.Range(0, 5);
         Color[] c = { Color.red, Color.cyan, Color.green, Color.magenta, Color.yellow };
         return c[r];
+    }
+
+    void LongJump()
+    {
+        //    rb.AddForce((transform.forward + (Vector3.up * 1.5f)) * jumpCharge, ForceMode.Impulse);
+        //    grounded = false;
+        //    Instantiate(footstepObj, transform.position + (transform.rotation * new Vector3(0.25f, 0, 0)), transform.rotation);
+        //    Instantiate(footstepObj, transform.position + (transform.rotation * new Vector3(-0.25f, 0, 0)), transform.rotation);
+        Vector3 p;
+
+        if (Physics.Raycast(cameraRay, out cameraRayHit))
+        {
+            // ...and if that object is the ground...
+            if (cameraRayHit.transform.tag == "Floor" || cameraRayHit.transform.tag == "Object")
+            {
+                // ...make the cube rotate (only on the Y axis) to face the ray hit's position 
+                //Vector3 targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
+                //transform.LookAt(targetPosition);
+                p = cameraRayHit.point;
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }
+
+        float gravity = Physics.gravity.magnitude;
+        // Selected angle in radians
+
+        // Positions of this object and the target on the same plane
+        Vector3 planarTarget = new Vector3(p.x, 0, p.z);
+        Vector3 planarPostion = new Vector3(transform.position.x, 0, transform.position.z);
+
+        // Planar distance between objects
+        float distance = Vector3.Distance(planarTarget, planarPostion);
+        //float distance = Vector3.Distance(transform.position, p);
+        // Distance along the y axis between objects
+        float yOffset = transform.position.y - p.y;
+        Debug.Log(yOffset);
+        //float angle = initialAngle* Mathf.Deg2Rad;
+        float angle = Mathf.Max(45,Mathf.Min(45 - yOffset*10, 80)) * Mathf.Deg2Rad;
+
+        float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
+
+        Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+
+        // Rotate our velocity to match the direction between the two objects
+        float angleBetweenObjects = Vector3.SignedAngle(Vector3.forward, planarTarget - planarPostion, Vector3.up);
+        Vector3 finalVelocity = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+
+        // Fire!
+        //rb.velocity = finalVelocity;
+
+        // Alternative way:
+        rb.AddForce(finalVelocity * rb.mass, ForceMode.Impulse);
     }
 }
 
