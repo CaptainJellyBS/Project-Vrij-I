@@ -18,6 +18,9 @@ public class Movement : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
 
+    //leave footprints
+    public GameObject footsteps;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -44,6 +47,8 @@ public class Movement : MonoBehaviour
             //jump in the direction of the cursor
             moveDirection = transform.TransformDirection(Vector3.forward * speed);
             moveDirection.y = jumpSpeed;
+            //leave footprint
+            Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
         }
             //if right mouse button is pressed
             else if (Input.GetMouseButton(1))
@@ -51,6 +56,8 @@ public class Movement : MonoBehaviour
                 //make big jump in the direction of the cursor 
                 moveDirection = transform.TransformDirection(Vector3.forward * 2*speed);
                 moveDirection.y = 2*jumpSpeed;
+                //leave footprint
+                Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
             }
                 //if nothing is pressed
                 else
@@ -69,7 +76,7 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(cameraRay, out cameraRayHit))
         {
             // ...and if that object is the ground...
-            if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish")
+            if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish" || cameraRayHit.transform.tag == "Hazard")
             {
                 // ...make the cube rotate (only on the Y axis) to face the ray hit's position 
                 Vector3 targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);

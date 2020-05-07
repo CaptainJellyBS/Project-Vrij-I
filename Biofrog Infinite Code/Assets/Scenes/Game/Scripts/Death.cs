@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    public GameObject player;
     public Transform startPos;
-
-    void Start()
-    {
-        player = GameObject.Find("tempPlayer");
-    }
+    public GameObject splat;
 
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("poison entered");
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Hazard"))
         {
-            player.transform.position = startPos.transform.position;
+            Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+            transform.position = startPos.transform.position;
         }
     }
 }
