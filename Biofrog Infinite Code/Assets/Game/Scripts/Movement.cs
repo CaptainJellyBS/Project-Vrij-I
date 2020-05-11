@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     //turn towards mouse position
     Ray cameraRay;                // The ray that is cast from the camera to the mouse position
     RaycastHit cameraRayHit;    // The object that the ray hits
+    Vector3 targetPosition; 
 
     //characterController movement
     public float speed = 6.0f;
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
             Move();
         }
 
+        //make sure movement follows time, not framerate
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
     }
@@ -54,8 +56,7 @@ public class Movement : MonoBehaviour
             else if (Input.GetMouseButton(1))
             {
                 //make big jump in the direction of the cursor 
-                moveDirection = transform.TransformDirection(Vector3.forward * 2*speed);
-                moveDirection.y = 2*jumpSpeed;
+                LongJump();
                 //leave footprint
                 Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
             }
@@ -79,9 +80,35 @@ public class Movement : MonoBehaviour
             if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish" || cameraRayHit.transform.tag == "Hazard")
             {
                 // ...make the cube rotate (only on the Y axis) to face the ray hit's position 
-                Vector3 targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
+                targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
                 transform.LookAt(targetPosition);
             }
         }
+    }
+
+    void LongJump()
+    {
+        // Positions of this object and the target on the same plane
+        Vector3 planarTarget = new Vector3(targetPosition.x, 0, targetPosition.z);
+        Vector3 planarPostion = new Vector3(transform.position.x, 0, transform.position.z);
+
+        // Planar distance between objects
+        float distance = Vector3.Distance(planarTarget, planarPostion);
+
+        // Distance along the y axis between objects
+        float yOffset = transform.position.y - targetPosition.y;
+
+        Debug.Log(yOffset);
+
+        //fancy math magic
+        float angle = Mathf.Max(45, Mathf.Min(45 - yOffset * 10, 80)) * Mathf.Deg2Rad;
+
+        float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
+
+        Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+
+        // Rotate our velocity to match the direction between the two objects
+        float angleBetweenObjects = Vector3.SignedAngle(Vector3.forward, planarTarget - planarPostion, Vector3.up);
+        moveDirection = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
     }
 }
