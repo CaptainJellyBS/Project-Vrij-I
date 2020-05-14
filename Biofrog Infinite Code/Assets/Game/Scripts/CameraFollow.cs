@@ -25,14 +25,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Vector3.Distance(new Vector3(player.transform.position.x, 0, player.transform.position.z), new Vector3(transform.position.x + CameraOffset, 0, transform.position.z + CameraOffset)) > CameraDistance)
-        //{
-        //    transform.position += (new Vector3(player.transform.position.x + CameraOffset, 0, player.transform.position.z + CameraOffset) - new Vector3(transform.position.x, 0, transform.position.z)) * Time.deltaTime;
-        //}
 
-        //if (Vector3.Distance(PlanarCameraTargetMiddle(), Vector3ToPlanar(player.transform.position)) > CameraDistance)
-        //Debug.Log(Vector3.Distance(cam.WorldToScreenPoint(player.transform.position), new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)));
-        //if (Vector3.Distance(cam.WorldToScreenPoint(player.transform.position), new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane)) > CameraDistance)
         if(PlayerTooCloseToEdge())
         {
             transform.position += Vector3ToPlanar(Vector3ToPlanar(PlayerLocationPlusOffset()) - (Vector3ToPlanar(transform.position))) * Time.deltaTime * CameraSpeedFast;

@@ -100,7 +100,8 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 8
   gravity: 20
-  footsteps: {fileID: 0}
+  footsteps: {fileID: 3712503883409083586, guid: 812cd0049288d6d4ba3dcd2b70208860,
+    type: 3}
 --- !u!143 &4786112592515426265
 CharacterController:
   m_ObjectHideFlags: 0

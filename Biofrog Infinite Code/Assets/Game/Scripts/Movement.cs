@@ -50,7 +50,8 @@ public class Movement : MonoBehaviour
             moveDirection = transform.TransformDirection(Vector3.forward * speed);
             moveDirection.y = jumpSpeed;
             //leave footprint
-            Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+            GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+            footPrint.SetActive(true);
         }
             //if right mouse button is pressed
             else if (Input.GetMouseButton(1))
@@ -58,7 +59,8 @@ public class Movement : MonoBehaviour
                 //make big jump in the direction of the cursor 
                 LongJump();
                 //leave footprint
-                Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+                GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+                footPrint.SetActive(true);
             }
                 //if nothing is pressed
                 else
