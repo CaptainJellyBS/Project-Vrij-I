@@ -36,6 +36,8 @@ public class CameraFollow : MonoBehaviour
 
         }
 
+        StopGameOnEscape();
+
     }
 
     Vector3 PlanarCameraTargetMiddle()
@@ -59,6 +61,15 @@ public class CameraFollow : MonoBehaviour
     Vector3 PlayerLocationPlusOffset()
     {
         return new Vector3(player.transform.position.x + CameraOffset, player.transform.position.y, player.transform.position.z + CameraOffset);
+    }
+
+    /// <summary>
+    /// Wanted to quickly add this to a script that already existed, needs to be moved later for sure.
+    /// </summary>
+    void StopGameOnEscape()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        { Application.Quit(); }
     }
 
 }
