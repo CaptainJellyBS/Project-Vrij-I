@@ -51,6 +51,9 @@ public class Movement : MonoBehaviour
             moveDirection.y = jumpSpeed;
             //leave footprint
             GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+            footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
+            footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
+
             footPrint.SetActive(true);
         }
             //if right mouse button is pressed
@@ -60,7 +63,9 @@ public class Movement : MonoBehaviour
                 LongJump();
                 //leave footprint
                 GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
-                footPrint.SetActive(true);
+                footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
+                footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
+            footPrint.SetActive(true);
             }
                 //if nothing is pressed
                 else

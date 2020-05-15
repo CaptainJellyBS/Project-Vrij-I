@@ -13,13 +13,21 @@ public class FrogColour : MonoBehaviour
     void Start()
     {
         color = randomColor();
-        frogMat = GetComponent<Renderer>().sharedMaterial;
+        frogMat = GetComponent<Renderer>().material;
         SetColor(color);
     }
 
     public void SetColor(Color c)
     {
-        frogMat.SetColor("_EmissionColor", c);
+        //frogMat.SetColor("_EmissionColor", c);
+        //frogMat.SetColor("_Color", c);
+
+        foreach(Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.material.SetColor("_EmissionColor", c);
+            r.material.SetColor("_Color", c);
+        }
+
         foreach (Light l in GetComponentsInChildren<Light>())
         {
             l.color = c;
@@ -29,6 +37,8 @@ public class FrogColour : MonoBehaviour
         {
             l.color = c;
         }
+
+        color = c;
     }
 
     public Color randomColor()

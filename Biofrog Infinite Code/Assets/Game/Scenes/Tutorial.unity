@@ -7858,6 +7858,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tempPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 4786112592515426264, guid: 21b6d14054375524c921dd6b3f99c887,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786112592515426266, guid: 21b6d14054375524c921dd6b3f99c887,
         type: 3}
       propertyPath: footsteps

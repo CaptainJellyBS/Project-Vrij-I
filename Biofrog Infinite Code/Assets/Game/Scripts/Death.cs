@@ -14,6 +14,10 @@ public class Death : MonoBehaviour
         if (other.gameObject.CompareTag("Hazard"))
         {
             GameObject splatt = Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.8f, 0)), transform.rotation);
+
+            splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
+            splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
+
             splatt.SetActive(true);
             foreach (Light l in splat.GetComponentsInChildren<Light>())
             {
