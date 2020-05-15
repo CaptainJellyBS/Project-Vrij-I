@@ -19,9 +19,6 @@ public class FrogColour : MonoBehaviour
 
     public void SetColor(Color c)
     {
-        //frogMat.SetColor("_EmissionColor", c);
-        //frogMat.SetColor("_Color", c);
-
         foreach(Renderer r in GetComponentsInChildren<Renderer>())
         {
             r.material.SetColor("_EmissionColor", c);
@@ -43,17 +40,11 @@ public class FrogColour : MonoBehaviour
 
     public Color randomColor()
     {
-        float r = Random.Range(0.3f, 0.8f);
-        float g = Random.Range(0.3f, 0.8f);
-        float b = Random.Range(0.3f, 0.8f);
+        float r = Random.Range(0.3f, 0.7f);
+        float g = Random.Range(0.3f, 0.7f);
+        float b = Random.Range(0.3f, 0.7f);
 
         Color c = new Color(r,g,b,1);
         return c;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -15,7 +15,7 @@ public class Character_Animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && (PlayerMovement.isGrounded))
+        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) && (PlayerMovement.isGrounded))
         {
             print("jomp");
             Kikker.ResetTrigger("SmallJump");
