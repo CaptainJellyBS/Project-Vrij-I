@@ -374,6 +374,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1441689349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &153090998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153090989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6002465f2b5c0b74dbdcddde852c155b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  footsteps: {fileID: 3712503883409083586, guid: 812cd0049288d6d4ba3dcd2b70208860,
+    type: 3}
+  frogMat: {fileID: 2100000, guid: a12375c549b785c4785830dc7201970b, type: 2}
 --- !u!1 &180038499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,6 +3897,11 @@ PrefabInstance:
       propertyPath: splat
       value: 
       objectReference: {fileID: 2006875162}
+    - target: {fileID: 4786112592515426271, guid: 21b6d14054375524c921dd6b3f99c887,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 153090989}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b6d14054375524c921dd6b3f99c887, type: 3}
 --- !u!1 &1457655626
@@ -4142,8 +4163,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4
-  m_Range: 100
+  m_Intensity: 10
+  m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
