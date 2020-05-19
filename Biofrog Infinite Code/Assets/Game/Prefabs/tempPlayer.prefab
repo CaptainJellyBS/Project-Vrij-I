@@ -49,8 +49,7 @@ GameObject:
   - component: {fileID: 4786112592515426264}
   - component: {fileID: 4786112592515426267}
   - component: {fileID: 4786112592515426271}
-  - component: {fileID: -5745484320299789188}
-  - component: {fileID: 510607275227836259}
+  - component: {fileID: 153090998}
   m_Layer: 0
   m_Name: tempPlayer
   m_TagString: Player
@@ -246,27 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {fileID: 0}
   splat: {fileID: 0}
-  player: {fileID: 0}
---- !u!95 &-5745484320299789188
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4786112592515426247}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9cbe8d84d70d31149bed1bcf0db59f6a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &510607275227836259
+  player: {fileID: 4786112592515426247}
+--- !u!114 &153090998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,11 +255,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4786112592515426247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5626ca715aa5043bc217b5e53e8488, type: 3}
+  m_Script: {fileID: 11500000, guid: 6002465f2b5c0b74dbdcddde852c155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Kikker: {fileID: 0}
-  PlayerMovement: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  footsteps: {fileID: 3712503883409083586, guid: 812cd0049288d6d4ba3dcd2b70208860,
+    type: 3}
+  frogMat: {fileID: 2100000, guid: a12375c549b785c4785830dc7201970b, type: 2}
 --- !u!1001 &4906522869130588632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,7 +277,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
@@ -310,7 +292,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
@@ -320,7 +302,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
@@ -335,12 +317,27 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 919c28564d3aac245b1814eb3b1af1a3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 919c28564d3aac245b1814eb3b1af1a3,
         type: 3}
