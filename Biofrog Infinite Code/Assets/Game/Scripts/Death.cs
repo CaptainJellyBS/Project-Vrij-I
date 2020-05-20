@@ -31,8 +31,14 @@ public class Death : MonoBehaviour
 
             GameObject splatt = Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.8f, 0)), transform.rotation);
 
-            splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
-            splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
+            Color c = GetComponent<FrogColour>().color;
+
+            splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
+            splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
+            foreach (Light l in splatt.GetComponentsInChildren<Light>())
+            {
+                l.color = c;
+            }
 
             splatt.SetActive(true);
             foreach (Light l in splat.GetComponentsInChildren<Light>())
