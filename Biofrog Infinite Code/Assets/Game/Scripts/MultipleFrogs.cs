@@ -10,10 +10,12 @@ public class MultipleFrogs : MonoBehaviour
     public int frogNumber;
 
     public GameObject followingCamera;
+    public GameObject audioListener;
 
     void Start()
     {
         followingCamera = GameObject.Find("Main Camera");
+        audioListener = GameObject.Find("audioListener");
 
         //arrays start at 0
         frogNumber = 0;
@@ -31,6 +33,8 @@ public class MultipleFrogs : MonoBehaviour
         frogs[frogNumber].GetComponent<Movement>().enabled = true;
         //let the camera follow the active frog
         followingCamera.GetComponent<CameraFollow>().player = frogs[frogNumber];
+        //move audiolistener to new frog (false ==> do not keep world position)
+        audioListener.transform.SetParent(frogs[frogNumber].transform, false); 
     }
 
     /// <summary>

@@ -22,9 +22,13 @@ public class Movement : MonoBehaviour
     //leave footprints
     public GameObject footsteps;
 
+    //make sound
+    public GameObject audioListener;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        audioListener = GameObject.Find("audioListener");
     }
 
     void Update()
@@ -34,6 +38,12 @@ public class Movement : MonoBehaviour
         {
             Turn();
             Move();
+        }
+
+        //make squek sound when space is pressed
+        if (Input.GetKeyDown("space"))
+        {
+            Squeak();
         }
 
         //make sure movement follows time, not framerate
@@ -49,9 +59,10 @@ public class Movement : MonoBehaviour
             //jump in the direction of the cursor
             moveDirection = transform.TransformDirection(Vector3.forward * speed);
             moveDirection.y = jumpSpeed;
-            GetComponentInChildren<Character_Animation>().JumpAnimation();
-
+            
             LeaveFootprint();
+
+            GetComponentInChildren<Character_Animation>().JumpAnimation();
         }
         //if right mouse button is pressed
         else if (Input.GetMouseButton(1))
@@ -145,6 +156,15 @@ public class Movement : MonoBehaviour
         }
 
         footPrint.SetActive(true);
+    }
+
+    /// <summary>
+    /// play squeak
+    /// </summary>
+    public void Squeak()
+    {
+        AudioSource squeak = GetComponent<AudioSource>();
+        audioListener.GetComponent<Audio>().PlaySound(squeak);
     }
 
 }
