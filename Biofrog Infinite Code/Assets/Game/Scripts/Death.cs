@@ -8,6 +8,9 @@ public class Death : MonoBehaviour
     public GameObject whichFrog;
     public bool hasDied;
 
+    [SerializeField][Range(0,10.0f)]
+    float deathCameraDelay = 2.0f;
+
     private void Start()
     {
         whichFrog = GameObject.Find("whichFrog");
@@ -26,7 +29,8 @@ public class Death : MonoBehaviour
         {
             hasDied = true;
 
-            whichFrog.GetComponent<MultipleFrogs>().NextFrog();
+            whichFrog.GetComponent<MultipleFrogs>().MakeCurrentFrogInactive();
+            Invoke("NextFrog", deathCameraDelay);
             Debug.Log("called NextFrog");
 
             GameObject splatt = Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.8f, 0)), transform.rotation);
@@ -47,5 +51,10 @@ public class Death : MonoBehaviour
                 l.color = color;
             }
         }
+    }
+
+    void NextFrog()
+    {
+        whichFrog.GetComponent<MultipleFrogs>().NextFrog();
     }
 }

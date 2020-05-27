@@ -47,9 +47,7 @@ public class MultipleFrogs : MonoBehaviour
         if (frogNumber < frogs.Length - 1)
         {
             //disable the movement script on the current frog and deactivate it
-            frogs[frogNumber].GetComponent<Movement>().enabled = false;
-            frogs[frogNumber].SetActive(false);
-            frogNumber++;
+
             //enable the movement script on the next frog
             frogs[frogNumber].GetComponent<Movement>().enabled = true;
             //let the camera follow the active frog
@@ -61,5 +59,15 @@ public class MultipleFrogs : MonoBehaviour
         {
             GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
         }
+    }
+
+    /// <summary>
+    /// Make the current frog inactive. This had to be separated from the NextFrog method to achieve the delay in moving the camera.
+    /// </summary>
+    public void MakeCurrentFrogInactive()
+    {
+        frogs[frogNumber].GetComponent<Movement>().enabled = false;
+        frogs[frogNumber].SetActive(false);
+        frogNumber++;
     }
 }

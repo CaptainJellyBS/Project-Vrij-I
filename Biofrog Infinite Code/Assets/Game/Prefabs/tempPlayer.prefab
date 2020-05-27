@@ -248,6 +248,7 @@ MonoBehaviour:
   splat: {fileID: 0}
   whichFrog: {fileID: 0}
   hasDied: 0
+  deathCameraDelay: 1.5
 --- !u!114 &153090998
 MonoBehaviour:
   m_ObjectHideFlags: 0
