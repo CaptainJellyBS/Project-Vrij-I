@@ -150,7 +150,7 @@ public class Movement : MonoBehaviour
         footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
         footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
 
-        foreach (Light l in footsteps.GetComponentsInChildren<Light>())
+        foreach (Light l in footPrint.GetComponentsInChildren<Light>())
         {
             l.color = c;
         }

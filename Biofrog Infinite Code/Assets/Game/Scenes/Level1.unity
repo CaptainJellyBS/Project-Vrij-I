@@ -361,6 +361,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   footsteps: {fileID: 1096364767}
+  audioListener: {fileID: 0}
 --- !u!114 &435449074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   splat: {fileID: 610905059}
   whichFrog: {fileID: 2033157567}
   hasDied: 0
+  deathCameraDelay: 2
 --- !u!143 &435449075
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1059,7 +1061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1195451392
 Light:
   m_ObjectHideFlags: 0
@@ -1329,6 +1331,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   footsteps: {fileID: 1096364767}
+  audioListener: {fileID: 0}
 --- !u!114 &1532847120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,6 +1347,7 @@ MonoBehaviour:
   splat: {fileID: 610905059}
   whichFrog: {fileID: 2033157567}
   hasDied: 0
+  deathCameraDelay: 2
 --- !u!114 &1532847121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,6 +1842,7 @@ MonoBehaviour:
   - {fileID: 0}
   frogNumber: 0
   followingCamera: {fileID: 730345831}
+  audioListener: {fileID: 0}
 --- !u!4 &2033157569
 Transform:
   m_ObjectHideFlags: 0
