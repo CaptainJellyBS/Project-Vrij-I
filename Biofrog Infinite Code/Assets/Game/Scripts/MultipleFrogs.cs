@@ -32,7 +32,7 @@ public class MultipleFrogs : MonoBehaviour
         //enable the movement script on the first frog
         frogs[frogNumber].GetComponent<Movement>().enabled = true;
         //let the camera follow the active frog
-        followingCamera.GetComponent<CameraFollow>().player = frogs[frogNumber];
+        followingCamera.GetComponent<CameraFollowNew>().player = frogs[frogNumber];
         //move audiolistener to frog (false ==> do not keep world position)
         audioListener.transform.SetParent(frogs[frogNumber].transform, false); 
     }
@@ -53,7 +53,7 @@ public class MultipleFrogs : MonoBehaviour
             //enable the movement script on the next frog
             frogs[frogNumber].GetComponent<Movement>().enabled = true;
             //let the camera follow the active frog
-            followingCamera.GetComponent<CameraFollow>().player = frogs[frogNumber];
+            followingCamera.GetComponent<CameraFollowNew>().player = frogs[frogNumber];
             //move audiolistener to new frog (false ==> do not keep world position)
             audioListener.transform.SetParent(frogs[frogNumber].transform, false);
         }

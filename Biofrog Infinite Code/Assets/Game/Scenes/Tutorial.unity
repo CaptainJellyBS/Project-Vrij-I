@@ -464,23 +464,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 810064374}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &174821239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174821235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 052164a988f94cb408e2757d8997d76e, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1001 &176622268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4317,60 +4300,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 174821236, guid: 0b637af0438292341967f127ad143158, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 153090989}
     - target: {fileID: 1880375325291103366, guid: 0b637af0438292341967f127ad143158,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103368, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: orthographic size
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103368, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: m_RenderingPath
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103368, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103369, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103370, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 153090989}
-    - target: {fileID: 1880375325291103370, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: CameraSpeedFast
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880375325291103370, guid: 0b637af0438292341967f127ad143158,
-        type: 3}
-      propertyPath: CameraSpeedSlow
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1880375325291103371, guid: 0b637af0438292341967f127ad143158,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.91
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1880375325291103371, guid: 0b637af0438292341967f127ad143158,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.05
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 1880375325291103371, guid: 0b637af0438292341967f127ad143158,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.69
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 1880375325291103371, guid: 0b637af0438292341967f127ad143158,
         type: 3}
@@ -4412,8 +4364,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1880375325291103369, guid: 0b637af0438292341967f127ad143158, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b637af0438292341967f127ad143158, type: 3}
 --- !u!1001 &812310115
 PrefabInstance:
@@ -9642,8 +9593,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   frogNumber: 0
-  followingCamera: {fileID: 0}
-  audioListener: {fileID: 0}
+  followingCamera: {fileID: 174821235}
+  audioListener: {fileID: 174821235}
 --- !u!4 &1759886063
 Transform:
   m_ObjectHideFlags: 0

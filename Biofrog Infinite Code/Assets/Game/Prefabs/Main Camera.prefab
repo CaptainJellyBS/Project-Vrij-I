@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1880375325291103371}
   - component: {fileID: 1880375325291103368}
-  - component: {fileID: 1880375325291103369}
-  - component: {fileID: 1880375325291103370}
+  - component: {fileID: 174821236}
+  - component: {fileID: 174821239}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -56,35 +56,27 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -100
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 15
+  field of view: 30
+  orthographic: 0
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1880375325291103369
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880375325291103366}
-  m_Enabled: 1
---- !u!114 &1880375325291103370
+--- !u!114 &174821236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +85,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1880375325291103366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77c5c6d1ade033458a2039d430b4c92, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f16740c06be0ee45af112e5dad35602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: -32, y: 40, z: -32}
   player: {fileID: 0}
-  CameraOffset: -7.5
-  CameraDistance: 300
-  CameraSpeedFast: 1
-  CameraSpeedSlow: 0.2
+--- !u!114 &174821239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880375325291103366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 052164a988f94cb408e2757d8997d76e, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
