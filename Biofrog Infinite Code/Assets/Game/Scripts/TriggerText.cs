@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class TriggerText : MonoBehaviour
 {
     bool shown = false;
-    public Text text;
+    public Text tutorialText;
 
     void Start()
     {
-        //Disable text on start if not disabled already
-        text.enabled = false;
+        //Disable text if enabled
+        DisableText();
     }
 
     /// <summary>
@@ -21,7 +21,7 @@ public class TriggerText : MonoBehaviour
     {
         if(shown) { return; }
         shown = true;
-        text.enabled = true;
+        tutorialText.enabled = true;
         Invoke("DisableText", seconds);
     }
 
@@ -30,6 +30,6 @@ public class TriggerText : MonoBehaviour
     /// </summary>
     void DisableText()
     {
-        text.enabled = false;
+        tutorialText.enabled = false;
     }
 }

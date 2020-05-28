@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb50e54c6b778614a856b08f364a7f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splat: {fileID: 0}
+  splat: {fileID: 3712503883409083586, guid: 812cd0049288d6d4ba3dcd2b70208860, type: 3}
   whichFrog: {fileID: 0}
   hasDied: 0
   deathCameraDelay: 1.5

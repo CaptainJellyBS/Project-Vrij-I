@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - Hazard
   - TextTrigger
+  - AreaHazard
+  - Heron
   layers:
   - Default
   - TransparentFX

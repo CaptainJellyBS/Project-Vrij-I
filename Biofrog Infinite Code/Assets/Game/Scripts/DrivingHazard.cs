@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrivingHazard : MonoBehaviour
+public class DrivingHazard : Hazard
 {
+
     public Transform[] patrolPoints;
     public Transform currentPoint;
     public int ind;
