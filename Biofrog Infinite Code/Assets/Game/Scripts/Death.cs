@@ -24,7 +24,6 @@ public class Death : MonoBehaviour
             return;
         }
 
-        Debug.Log("poison entered");
         if (other.gameObject.CompareTag("Hazard"))
         {
             hasDied = true;
@@ -50,6 +49,11 @@ public class Death : MonoBehaviour
                 Color color = GetComponent<Light>().color;
                 l.color = color;
             }
+        }
+
+        if (other.gameObject.CompareTag("TextTrigger"))
+        {
+            other.gameObject.GetComponent<TriggerText>().ShowText(2.0f);
         }
     }
 
