@@ -34,6 +34,14 @@ public class AreaHazardScript : Hazard
         {
             player.GetComponent<Death>().Die();
             timeOfDemise = 0;
+            heronMaterials[1].DisableKeyword("_EMISSION");
+            foreach (GameObject heron in herons)
+            {
+                foreach (Light l in heron.GetComponentsInChildren<Light>(true))
+                {
+                    l.enabled = false;
+                }
+            }
         }
     }
 
