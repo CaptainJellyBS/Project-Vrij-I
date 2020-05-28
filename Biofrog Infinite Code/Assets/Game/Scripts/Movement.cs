@@ -138,6 +138,11 @@ public class Movement : MonoBehaviour
 
             GetComponentInChildren<Character_Animation>().JumpAnimation();
         }
+        else
+        {
+            //stop moving
+            moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+        }
     }
 
     /// <summary>
