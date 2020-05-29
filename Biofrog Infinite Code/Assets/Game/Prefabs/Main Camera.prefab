@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: -32, y: 40, z: -32}
   player: {fileID: 0}
+  cameraRotateSpeed: 40
 --- !u!114 &174821239
 MonoBehaviour:
   m_ObjectHideFlags: 0
