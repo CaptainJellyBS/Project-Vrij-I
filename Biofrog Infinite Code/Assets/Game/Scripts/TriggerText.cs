@@ -10,7 +10,7 @@ public class TriggerText : MonoBehaviour
     void Start()
     {
         //Disable text if enabled
-        DisableText();
+        //DisableText(); This causes NullReferenceExceptions, removing it seems to have fixed that
     }
 
     /// <summary>

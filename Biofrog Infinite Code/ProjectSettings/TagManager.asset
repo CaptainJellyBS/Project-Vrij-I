@@ -10,6 +10,7 @@ TagManager:
   - TextTrigger
   - AreaHazard
   - Heron
+  - Collectible
   layers:
   - Default
   - TransparentFX

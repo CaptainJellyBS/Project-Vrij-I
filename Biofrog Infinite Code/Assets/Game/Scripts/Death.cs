@@ -33,6 +33,11 @@ public class Death : MonoBehaviour
         {
             other.gameObject.GetComponent<TriggerText>().ShowText(5.0f);
         }
+
+        if(other.gameObject.CompareTag("Collectible"))
+        {
+            other.gameObject.GetComponent<FireFly>().Collect(this.gameObject);
+        }
     }
 
     /// <summary>
