@@ -12,7 +12,12 @@ public class CameraFollowNew : MonoBehaviour
     {
         transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z) + offset;
 
+    }
+
+    void FixedUpdate()
+    {
         HandleInput();
+
     }
 
     void HandleInput()
@@ -32,7 +37,7 @@ public class CameraFollowNew : MonoBehaviour
     {
         turning = true;
         float i = 0;
-        float change = 5.0f;
+        float change = 2.5f;
         while(i<target)
         {
             i += change;
