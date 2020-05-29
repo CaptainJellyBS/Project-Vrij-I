@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Testing Sandbox.unity
     guid: 467c352f24d738a4f8a11d108f2f8526
   - enabled: 0
-    path: Assets/Game/Scenes/Level2.unity
-    guid: 098c81dcba75d7246b482ca17e79f4ed
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Game/Scenes/Tutorial.unity
-    guid: f384ca2078a96a249830798610c1e4ce
+    path: Assets/Game/Scenes/Level 1.unity
+    guid: c5c990398c43732498c4accc2215e472
   m_configObjects: {}
