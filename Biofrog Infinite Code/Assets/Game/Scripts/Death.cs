@@ -17,12 +17,10 @@ public class Death : MonoBehaviour
         hasDied = false;
     }
 
+    /*
     public void OnTriggerEnter(Collider other)
     {
-        if (hasDied)
-        {
-            return;
-        }
+
 
         if (other.gameObject.CompareTag("Hazard"))
         {
@@ -39,12 +37,18 @@ public class Death : MonoBehaviour
             other.gameObject.GetComponent<FireFly>().Collect(this.gameObject);
         }
     }
+    */
 
     /// <summary>
     /// Does all the stuff that should be done upon death of a frog
     /// </summary>
     public void Die()
     {
+        if (hasDied)
+        {
+            return;
+        }
+
         hasDied = true;
 
         whichFrog.GetComponent<MultipleFrogs>().MakeCurrentFrogInactive();

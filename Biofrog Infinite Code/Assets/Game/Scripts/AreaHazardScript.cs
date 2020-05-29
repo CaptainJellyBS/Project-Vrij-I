@@ -45,6 +45,7 @@ public class AreaHazardScript : Hazard
         }
     }
 
+    /*   
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
@@ -60,6 +61,41 @@ public class AreaHazardScript : Hazard
             }
          }
     }
+    */
+
+    public void ActivateHeron(GameObject other)
+    {
+        if (other == player)
+        {
+            heronMaterials[1].EnableKeyword("_EMISSION");
+            foreach (GameObject heron in herons)
+            {
+                foreach (Light l in heron.GetComponentsInChildren<Light>(true))
+                {
+                    l.enabled = true;
+                }
+            }
+            timeOfDemise = Time.time + 3.0f;
+        }
+    }
+
+    public void DeactivateHeron(GameObject other)
+    {
+        if (other == player)
+        {
+            heronMaterials[1].DisableKeyword("_EMISSION");
+            foreach (GameObject heron in herons)
+            {
+                foreach (Light l in heron.GetComponentsInChildren<Light>(true))
+                {
+                    l.enabled = false;
+                }
+            }
+            timeOfDemise = 0;
+        }
+    }
+
+    /*
     public void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
@@ -74,6 +110,6 @@ public class AreaHazardScript : Hazard
             }
             timeOfDemise = 0;
         }
-    }
-
+    
+    */
 }

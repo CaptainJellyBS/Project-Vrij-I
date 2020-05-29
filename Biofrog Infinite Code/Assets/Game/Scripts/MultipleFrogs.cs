@@ -52,7 +52,7 @@ public class MultipleFrogs : MonoBehaviour
     {
         Debug.Log(frogs[frogNumber]);
         //if there are still frogs alive
-        if (frogNumber < frogs.Length - 1)
+        if (frogNumber < frogs.Length)
         {
             //disable the movement script on the current frog and deactivate it
 
@@ -83,5 +83,9 @@ public class MultipleFrogs : MonoBehaviour
         frogs[frogNumber].GetComponent<Movement>().enabled = false;
         frogs[frogNumber].SetActive(false);
         frogNumber++;
+        if (frogNumber == frogs.Length)
+        {
+            GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
+        }
     }
 }
