@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f16740c06be0ee45af112e5dad35602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -32, y: 40, z: -32}
+  offset: {x: -28, y: 40, z: -28}
   player: {fileID: 0}
   cameraRotateSpeed: 40
 --- !u!114 &174821239
