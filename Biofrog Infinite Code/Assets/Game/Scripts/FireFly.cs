@@ -8,11 +8,25 @@ public class FireFly : MonoBehaviour
     GameObject player;
     [SerializeField]
     Vector3 offset;
+    Vector3 startPos;
+    float direction = 0.5f;
+
+    void Start()
+    {
+        startPos = transform.position;
+    }
+
+
     void Update()
     {
         if(isOnPlayer)
         {
             transform.position = player.transform.position + offset;
+        }
+        else
+        {
+            transform.position += Vector3.up * direction * Time.deltaTime;
+            if(Vector3.Distance(transform.position, startPos) > 0.3f) { direction *= -1; }
         }
         //This should crash on death but doesn't. Needs to be fixed anyway but s t r e s s
     }
