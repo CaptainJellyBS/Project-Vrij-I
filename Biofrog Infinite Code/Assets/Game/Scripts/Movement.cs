@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     //leave footprints
     public GameObject footsteps;
 
-    //make sound
+    //Listen to sound
     public GameObject audioListener;
 
     void Start()
