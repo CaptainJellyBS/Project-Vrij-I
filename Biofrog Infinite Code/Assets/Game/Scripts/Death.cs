@@ -17,28 +17,6 @@ public class Death : MonoBehaviour
         hasDied = false;
     }
 
-    /*
-    public void OnTriggerEnter(Collider other)
-    {
-
-
-        if (other.gameObject.CompareTag("Hazard"))
-        {
-            Die();
-        }
-
-        if (other.gameObject.CompareTag("TextTrigger"))
-        {
-            other.gameObject.GetComponent<TriggerText>().ShowText(5.0f);
-        }
-
-        if(other.gameObject.CompareTag("Collectible"))
-        {
-            other.gameObject.GetComponent<FireFly>().Collect(this.gameObject);
-        }
-    }
-    */
-
     /// <summary>
     /// Does all the stuff that should be done upon death of a frog
     /// </summary>

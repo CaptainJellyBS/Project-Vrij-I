@@ -8,7 +8,9 @@ public class MultipleFrogs : MonoBehaviour
     public GameObject[] frogs;
     //which frog is active
     public int frogNumber;
+    public GameObject activefrog;
 
+    //gameobjects that need to know which frog is active
     public GameObject followingCamera;
     public GameObject audioListener;
     //array for herons (and any other areahazards that are added)
@@ -31,17 +33,20 @@ public class MultipleFrogs : MonoBehaviour
             Color c = frog.GetComponent<FrogColour>().randomColor();
             frog.GetComponent<FrogColour>().SetColor(c);
         }
+        //set the first frog as active frog
+        activefrog = frogs[frogNumber];
 
-        //enable the movement script on the first frog
-        frogs[frogNumber].GetComponent<Movement>().enabled = true;
+        //enable the movement & trigger script on the first frog
+        activefrog.GetComponent<Movement>().enabled = true;
+        activefrog.GetComponent<TriggerManager>().enabled = true;
         //let the camera follow the active frog
-        followingCamera.GetComponent<CameraFollowNew>().player = frogs[frogNumber];
+        followingCamera.GetComponent<CameraFollowNew>().player = activefrog;
         //move audiolistener to frog (false ==> do not keep world position)
-        audioListener.transform.SetParent(frogs[frogNumber].transform, false);
+        audioListener.transform.SetParent(activefrog.transform, false);
         //change active frog for all herons in the scene
         foreach (GameObject heron in areaHazards)
         {
-            heron.GetComponent<AreaHazardScript>().player = frogs[frogNumber];
+            heron.GetComponent<AreaHazardScript>().player = activefrog;
         }
     }
 
@@ -53,21 +58,15 @@ public class MultipleFrogs : MonoBehaviour
         Debug.Log(frogs[frogNumber]);
         //if there are still frogs alive
         if (frogNumber < frogs.Length)
-        {
-            //disable the movement script on the current frog and deactivate it
+        {            
+            //set the new active frog as active frog
+            activefrog = frogs[frogNumber];
 
-            //enable the movement script on the next frog
-            frogs[frogNumber].GetComponent<Movement>().enabled = true;
+            //enable the movement & trigger script on the next frog
+            activefrog.GetComponent<Movement>().enabled = true;
+            activefrog.GetComponent<TriggerManager>().enabled = true;
 
-            //let the camera follow the active frog
-            followingCamera.GetComponent<CameraFollowNew>().player = frogs[frogNumber];
-            //move audiolistener to new frog (false ==> do not keep world position)
-            audioListener.transform.SetParent(frogs[frogNumber].transform, false);
-            //change active frog for all herons in the scene
-            foreach (GameObject heron in areaHazards)
-            {
-                heron.GetComponent<AreaHazardScript>().player = frogs[frogNumber];
-            }
+            ChangePlayerInScripts();
         }
         else
         {
@@ -80,12 +79,32 @@ public class MultipleFrogs : MonoBehaviour
     /// </summary>
     public void MakeCurrentFrogInactive()
     {
-        frogs[frogNumber].GetComponent<Movement>().enabled = false;
-        frogs[frogNumber].SetActive(false);
+        //disable the movement & trigger script on the next frog
+        activefrog.GetComponent<Movement>().enabled = false;
+        activefrog.GetComponent<TriggerManager>().enabled = false;
+        activefrog.SetActive(false);
         frogNumber++;
         if (frogNumber == frogs.Length)
         {
             GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
         }
     }
+
+    /// <summary>
+    /// Changes the player referenced in different scripts to the currently active frog
+    /// </summary>
+    public void ChangePlayerInScripts()
+    {
+        //let the camera follow the active frog
+        followingCamera.GetComponent<CameraFollowNew>().player = activefrog;
+        //move audiolistener to new frog (false ==> do not keep world position)
+        audioListener.transform.SetParent(activefrog.transform, false);
+
+        //change active frog for all herons in the scene
+        foreach (GameObject heron in areaHazards)
+        {
+            heron.GetComponent<AreaHazardScript>().player = activefrog;
+        }
+    }
+
 }

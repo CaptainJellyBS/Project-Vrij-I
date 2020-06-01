@@ -30,7 +30,7 @@ public class AreaHazardScript : Hazard
     // Update is called once per frame
     void Update()
     {
-          if (timeOfDemise != 0 && timeOfDemise < Time.time)
+        if (timeOfDemise != 0 && timeOfDemise < Time.time)
         {
             player.GetComponent<Death>().Die();
             timeOfDemise = 0;

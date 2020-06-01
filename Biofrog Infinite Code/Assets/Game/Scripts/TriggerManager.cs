@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TriggerManager : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,27 @@ public class TriggerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleKeyInput();
+    }
+
+    void HandleKeyInput()
+    {
+        //quit when esc is pressed
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        //make squek sound when space is pressed
+        if (Input.GetKeyDown("space"))
+        {
+            this.GetComponent<Movement>().Squeak();
+        }
+
+        //kill active frog
+        if (Input.GetKeyDown("end"))
+        {
+            this.GetComponent<Death>().Die();
+        }
 
     }
 
@@ -38,7 +58,6 @@ public class TriggerManager : MonoBehaviour
             Debug.Log(this.gameObject);
             other.gameObject.GetComponent<AreaHazardScript>().ActivateHeron(this.gameObject);
         }
-
     }
 
     public void OnTriggerExit(Collider other)

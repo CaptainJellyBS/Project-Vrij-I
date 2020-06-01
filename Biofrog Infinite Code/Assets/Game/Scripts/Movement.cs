@@ -40,12 +40,6 @@ public class Movement : MonoBehaviour
             Move();
         }
 
-        //make squek sound when space is pressed
-        if (Input.GetKeyDown("space"))
-        {
-            Squeak();
-        }
-
         //make sure movement follows time, not framerate
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
