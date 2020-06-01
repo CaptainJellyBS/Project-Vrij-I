@@ -8,7 +8,7 @@ public class AreaHazardScript : Hazard
     public GameObject player;
     public float timeOfDemise;
 
-    public Material[] heronMaterials;
+    private Material[] heronMaterials;
 
     // Start is called before the first frame update
     void Start()

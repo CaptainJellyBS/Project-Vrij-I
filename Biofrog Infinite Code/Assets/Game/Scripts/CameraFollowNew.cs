@@ -8,8 +8,8 @@ public class CameraFollowNew : MonoBehaviour
     public GameObject player;
 
     //change camera height
-    public float height;
-    public Vector3 heightVector;
+    private float height;
+    private Vector3 heightVector;
 
     //rotation
     public float cameraRotateSpeed = 2.5f;
