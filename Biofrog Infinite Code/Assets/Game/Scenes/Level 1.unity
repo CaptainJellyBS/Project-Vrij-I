@@ -8386,7 +8386,7 @@ PrefabInstance:
     - target: {fileID: 174821236, guid: 0b637af0438292341967f127ad143158, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1366593052}
     - target: {fileID: 1880375325291103366, guid: 0b637af0438292341967f127ad143158,
         type: 3}
       propertyPath: m_Name
@@ -8774,7 +8774,7 @@ MonoBehaviour:
   - {fileID: 813178045}
   - {fileID: 1451049137}
   currentPoint: {fileID: 0}
-  ind: 0
+  nextPoint: 0
   DistanceToPoint: 1
   MoveSpeed: 30
 --- !u!65 &844401666
@@ -11758,6 +11758,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8242359788761555336, guid: 99730abbf85cb61449737d59543cd874,
     type: 3}
   m_PrefabInstance: {fileID: 1336138513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1366593052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4786112592515426247, guid: 21b6d14054375524c921dd6b3f99c887,
+    type: 3}
+  m_PrefabInstance: {fileID: 1321603325}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370168809
 GameObject:
