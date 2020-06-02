@@ -12,15 +12,13 @@ public class Character_Animation : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// play jump animation when player jumps
+    /// </summary>
+    public void JumpAnimation()
     {
-        //play jump animation when player jumps
-        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) && (PlayerMovement.isGrounded))
-        {
             Debug.Log("jomp");
             Kikker.ResetTrigger("SmallJump");
             Kikker.SetTrigger("SmallJump");
-        }      
     }
 }

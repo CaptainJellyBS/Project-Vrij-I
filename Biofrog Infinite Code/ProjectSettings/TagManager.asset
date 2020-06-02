@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Obstacle
   - Hazard
+  - TextTrigger
+  - AreaHazard
+  - Heron
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - PostProcessing
   - 
   - 
   - 

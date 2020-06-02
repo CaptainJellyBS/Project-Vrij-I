@@ -22,9 +22,13 @@ public class Movement : MonoBehaviour
     //leave footprints
     public GameObject footsteps;
 
+    //Listen to sound
+    public GameObject audioListener;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        audioListener = GameObject.Find("audioListener");
     }
 
     void Update()
@@ -49,23 +53,16 @@ public class Movement : MonoBehaviour
             //jump in the direction of the cursor
             moveDirection = transform.TransformDirection(Vector3.forward * speed);
             moveDirection.y = jumpSpeed;
-            //leave footprint
-            GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
-            footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
-            footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
+            
+            LeaveFootprint();
 
-            footPrint.SetActive(true);
+            GetComponentInChildren<Character_Animation>().JumpAnimation();
         }
-            //if right mouse button is pressed
-            else if (Input.GetMouseButton(1))
+        //if right mouse button is pressed
+        else if (Input.GetMouseButton(1))
             {
                 //make big jump in the direction of the cursor 
                 LongJump();
-                //leave footprint
-                GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
-                footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
-                footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
-                footPrint.SetActive(true);
             }
                 //if nothing is pressed
                 else
@@ -75,6 +72,9 @@ public class Movement : MonoBehaviour
                 }
     }
 
+    /// <summary>
+    /// turn the frog towards the mouse
+    /// </summary>
     private void Turn()
     {
         // Cast a ray from the camera to the mouse cursor
@@ -83,8 +83,13 @@ public class Movement : MonoBehaviour
         // If the ray strikes an object...
         if (Physics.Raycast(cameraRay, out cameraRayHit))
         {
-            // ...and if that object is the ground...
-            if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish" || cameraRayHit.transform.tag == "Hazard")
+            //if the object is a frog
+            if (cameraRayHit.transform.tag == "Player")
+            {
+                return;
+            }
+            // else, if that object is the ground or anything you can jump on...
+            else if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish" || cameraRayHit.transform.tag == "Hazard")
             {
                 // ...make the cube rotate (only on the Y axis) to face the ray hit's position 
                 targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
@@ -102,20 +107,63 @@ public class Movement : MonoBehaviour
         // Planar distance between objects
         float distance = Vector3.Distance(planarTarget, planarPostion);
 
-        // Distance along the y axis between objects
-        float yOffset = transform.position.y - targetPosition.y;
+        // if the distance to be jumped isn't too small
+        if (distance > 4.5)
+        {
+            Debug.Log(distance);
 
-        Debug.Log(yOffset);
+            // Distance along the y axis between objects
+            float yOffset = transform.position.y - targetPosition.y;
 
-        //fancy math magic
-        float angle = Mathf.Max(45, Mathf.Min(45 - yOffset * 10, 80)) * Mathf.Deg2Rad;
+            Debug.Log(yOffset);
 
-        float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
+            //fancy math magic
+            float angle = Mathf.Max(45, Mathf.Min(45 - yOffset * 10, 80)) * Mathf.Deg2Rad;
 
-        Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+            float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
 
-        // Rotate our velocity to match the direction between the two objects
-        float angleBetweenObjects = Vector3.SignedAngle(Vector3.forward, planarTarget - planarPostion, Vector3.up);
-        moveDirection = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+            Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+
+            // Rotate our velocity to match the direction between the two objects
+            float angleBetweenObjects = Vector3.SignedAngle(Vector3.forward, planarTarget - planarPostion, Vector3.up);
+            moveDirection = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+
+            LeaveFootprint();
+
+            GetComponentInChildren<Character_Animation>().JumpAnimation();
+        }
+        else
+        {
+            //stop moving
+            moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+        }
     }
+
+    /// <summary>
+    /// leave a footprint
+    /// </summary>
+    public void LeaveFootprint()
+    {
+        Color c = GetComponent<FrogColour>().color;
+        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+        footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
+        footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
+
+        foreach (Light l in footPrint.GetComponentsInChildren<Light>())
+        {
+            l.color = c;
+        }
+
+        footPrint.SetActive(true);
+    }
+
+    /// <summary>
+    /// play squeak
+    /// </summary>
+    public void Squeak()
+    {
+        AudioSource squeak = GetComponent<AudioSource>();
+        audioListener.GetComponent<Audio>().PlaySound(squeak);
+    }
+
 }

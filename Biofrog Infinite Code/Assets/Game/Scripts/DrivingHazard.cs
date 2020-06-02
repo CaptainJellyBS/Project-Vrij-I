@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrivingHazard : MonoBehaviour
+public class DrivingHazard : Hazard
 {
+
     public Transform[] patrolPoints;
     public Transform currentPoint;
-    public int ind;
+    public int nextPoint;
 
     [SerializeField]
     [Range(0, 5)]
@@ -18,10 +19,10 @@ public class DrivingHazard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ind = 0;
+        nextPoint = 0;
         if (patrolPoints.Length > 0)
         {
-            currentPoint = patrolPoints[ind];
+            currentPoint = patrolPoints[nextPoint];
             transform.LookAt(currentPoint.position);
 
         }
@@ -55,9 +56,9 @@ public class DrivingHazard : MonoBehaviour
             return;
         }
 
-        ind++;
-        ind %= patrolPoints.Length;
-        currentPoint = patrolPoints[ind];
+        nextPoint++;
+        nextPoint %= patrolPoints.Length;
+        currentPoint = patrolPoints[nextPoint];
 
         transform.LookAt(currentPoint.position);
     }

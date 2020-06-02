@@ -4,30 +4,56 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    public Transform startPos;
     public GameObject splat;
-    public GameObject player;
+    public GameObject whichFrog;
+    public bool hasDied;
 
-    public void OnTriggerEnter(Collider other)
+    [SerializeField][Range(0,10.0f)]
+    float deathCameraDelay = 2.0f;
+
+    private void Start()
     {
-        Debug.Log("poison entered");
-        if (other.gameObject.CompareTag("Hazard"))
+        whichFrog = GameObject.Find("whichFrog");
+        hasDied = false;
+    }
+
+    /// <summary>
+    /// Does all the stuff that should be done upon death of a frog
+    /// </summary>
+    public void Die()
+    {
+        if (hasDied)
         {
-            GameObject splatt = Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.8f, 0)), transform.rotation);
-
-            splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", GetComponent<FrogColour>().color);
-            splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", GetComponent<FrogColour>().color);
-
-            splatt.SetActive(true);
-            foreach (Light l in splat.GetComponentsInChildren<Light>())
-            {
-                Color color = player.GetComponent<Light>().color;
-                l.color = color;
-            }
-
-            Color c = player.GetComponent<FrogColour>().randomColor();
-            player.GetComponent<FrogColour>().SetColor(c);
-            transform.position = startPos.transform.position;
+            return;
         }
+
+        hasDied = true;
+
+        whichFrog.GetComponent<MultipleFrogs>().MakeCurrentFrogInactive();
+        Invoke("NextFrog", deathCameraDelay);
+        Debug.Log("called NextFrog");
+
+        GameObject splatt = Instantiate(splat, transform.position + (transform.rotation * new Vector3(0, -0.8f, 0)), transform.rotation);
+
+        Color c = GetComponent<FrogColour>().color;
+
+        splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
+        splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
+        foreach (Light l in splatt.GetComponentsInChildren<Light>())
+        {
+            l.color = c;
+        }
+
+        splatt.SetActive(true);
+        foreach (Light l in splat.GetComponentsInChildren<Light>())
+        {
+            Color color = GetComponent<Light>().color;
+            l.color = color;
+        }
+    }
+
+    void NextFrog()
+    {
+        whichFrog.GetComponent<MultipleFrogs>().NextFrog();
     }
 }

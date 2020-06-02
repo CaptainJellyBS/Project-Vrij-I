@@ -12,11 +12,12 @@ public class FrogColour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        color = randomColor();
         frogMat = GetComponent<Renderer>().material;
-        SetColor(color);
     }
 
+    /// <summary>
+    /// Make the color, emission and the point lights in the children (footsteps & splat) the color that is given through the parameter
+    /// </summary>
     public void SetColor(Color c)
     {
         foreach(Renderer r in GetComponentsInChildren<Renderer>())
@@ -30,14 +31,13 @@ public class FrogColour : MonoBehaviour
             l.color = c;
         }
 
-        foreach (Light l in footsteps.GetComponentsInChildren<Light>())
-        {
-            l.color = c;
-        }
-
         color = c;
     }
 
+    /// <summary>
+    /// generate a random (opague) color
+    /// </summary>
+    /// <returns></returns>
     public Color randomColor()
     {
         float r = Random.Range(0.3f, 0.7f);
