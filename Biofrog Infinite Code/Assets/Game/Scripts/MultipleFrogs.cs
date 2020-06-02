@@ -27,11 +27,13 @@ public class MultipleFrogs : MonoBehaviour
         //put the playable frogs in the array
         frogs = GameObject.FindGameObjectsWithTag("Player");
 
-        //give each frog a different random colour
+        //give each frog a different random colour and dectivate their movement & trigger scripts
         foreach (GameObject frog in frogs)
         {
             Color c = frog.GetComponent<FrogColour>().randomColor();
             frog.GetComponent<FrogColour>().SetColor(c);
+            frog.GetComponent<Movement>().enabled = false;
+            frog.GetComponent<TriggerManager>().enabled = false;
         }
         //set the first frog as active frog
         activefrog = frogs[frogNumber];

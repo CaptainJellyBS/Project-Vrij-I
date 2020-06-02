@@ -1639,7 +1639,7 @@ PrefabInstance:
     - target: {fileID: 4786112592515426266, guid: 21b6d14054375524c921dd6b3f99c887,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786112592515426270, guid: 21b6d14054375524c921dd6b3f99c887,
         type: 3}
@@ -1695,6 +1695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958764407508923192, guid: 21b6d14054375524c921dd6b3f99c887,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b6d14054375524c921dd6b3f99c887, type: 3}
@@ -2375,7 +2380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1195451392
 Light:
   m_ObjectHideFlags: 0
@@ -3889,6 +3894,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   frogNumber: 0
+  activefrog: {fileID: 0}
   followingCamera: {fileID: 0}
   audioListener: {fileID: 0}
   areaHazards: []

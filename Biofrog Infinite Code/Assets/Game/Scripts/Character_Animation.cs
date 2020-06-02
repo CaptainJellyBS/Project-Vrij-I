@@ -13,12 +13,21 @@ public class Character_Animation : MonoBehaviour
     }
 
     /// <summary>
-    /// play jump animation when player jumps
+    /// play small jump animation when player hops
     /// </summary>
-    public void JumpAnimation()
+    public void SmallJumpAnimation()
     {
             Debug.Log("jomp");
             Kikker.ResetTrigger("SmallJump");
             Kikker.SetTrigger("SmallJump");
+    }
+    /// <summary>
+    /// play large  jump animation when player jumps
+    /// </summary>
+    public void LargeJumpAnimation()
+    {
+            Debug.Log("jomp");
+            Kikker.ResetTrigger("LargeJump");
+            Kikker.SetTrigger("LargeJump");
     }
 }

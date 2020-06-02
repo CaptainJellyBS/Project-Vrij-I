@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
             
             LeaveFootprint();
 
-            GetComponentInChildren<Character_Animation>().JumpAnimation();
+            GetComponentInChildren<Character_Animation>().SmallJumpAnimation();
         }
         //if right mouse button is pressed
         else if (Input.GetMouseButton(1))
@@ -130,7 +130,7 @@ public class Movement : MonoBehaviour
 
             LeaveFootprint();
 
-            GetComponentInChildren<Character_Animation>().JumpAnimation();
+            GetComponentInChildren<Character_Animation>().LargeJumpAnimation();
         }
         else
         {
