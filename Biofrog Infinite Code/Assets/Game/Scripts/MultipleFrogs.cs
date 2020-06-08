@@ -13,6 +13,7 @@ public class MultipleFrogs : MonoBehaviour
     //gameobjects that need to know which frog is active
     public GameObject followingCamera;
     public GameObject audioListener;
+    public GameObject eventManager;
     //array for herons (and any other areahazards that are added)
     public GameObject[] areaHazards;
 
@@ -20,6 +21,7 @@ public class MultipleFrogs : MonoBehaviour
     {
         followingCamera = GameObject.Find("Main Camera");
         audioListener = GameObject.Find("audioListener");
+        eventManager = GameObject.Find("EventSystem");
         areaHazards = GameObject.FindGameObjectsWithTag("AreaHazard");
 
         //arrays start at 0
@@ -41,15 +43,8 @@ public class MultipleFrogs : MonoBehaviour
         //enable the movement & trigger script on the first frog
         activefrog.GetComponent<Movement>().enabled = true;
         activefrog.GetComponent<TriggerManager>().enabled = true;
-        //let the camera follow the active frog
-        followingCamera.GetComponent<CameraFollowNew>().player = activefrog;
-        //move audiolistener to frog (false ==> do not keep world position)
-        audioListener.transform.SetParent(activefrog.transform, false);
-        //change active frog for all herons in the scene
-        foreach (GameObject heron in areaHazards)
-        {
-            heron.GetComponent<AreaHazardScript>().player = activefrog;
-        }
+
+        ChangePlayerInScripts();
     }
 
     /// <summary>
@@ -101,6 +96,9 @@ public class MultipleFrogs : MonoBehaviour
         followingCamera.GetComponent<CameraFollowNew>().player = activefrog;
         //move audiolistener to new frog (false ==> do not keep world position)
         audioListener.transform.SetParent(activefrog.transform, false);
+
+        //have Inputmanager change (kill) right frog
+        eventManager.GetComponent<InputManager>().player = activefrog;
 
         //change active frog for all herons in the scene
         foreach (GameObject heron in areaHazards)

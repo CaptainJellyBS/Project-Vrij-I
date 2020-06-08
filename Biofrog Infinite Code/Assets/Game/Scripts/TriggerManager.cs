@@ -13,27 +13,6 @@ public class TriggerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleKeyInput();
-    }
-
-    void HandleKeyInput()
-    {
-        //quit when esc is pressed
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        //make squek sound when space is pressed
-        if (Input.GetKeyDown("space"))
-        {
-            this.GetComponent<Movement>().Squeak();
-        }
-
-        //kill active frog
-        if (Input.GetKeyDown("end"))
-        {
-            this.GetComponent<Death>().Die();
-        }
 
     }
 
