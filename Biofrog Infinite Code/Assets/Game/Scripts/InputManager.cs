@@ -24,14 +24,14 @@ public class InputManager : MonoBehaviour
     void HandleKeyInput()
     {
         //quit when esc is pressed
-        if (Input.GetKeyUp(KeyCode.Escape))
+        /*if (Input.GetKeyUp(KeyCode.Escape))
         {
             player.GetComponent<Movement>().Squeak();
             Application.Quit();
-        }
+        }*/
 
-        //quit when p is pressed
-        if (Input.GetKeyUp(KeyCode.P))
+        //quit when Escape is pressed
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
             if (!GamePaused)
             {
