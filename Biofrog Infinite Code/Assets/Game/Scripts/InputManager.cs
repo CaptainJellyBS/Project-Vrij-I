@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
         //quit when esc is pressed
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            player.GetComponent<Movement>().Squeak();
             Application.Quit();
         }
 
