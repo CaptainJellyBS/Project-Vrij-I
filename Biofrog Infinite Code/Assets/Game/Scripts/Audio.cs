@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-
+    GameObject currentPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +13,7 @@ public class Audio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        FollowPlayer();
     }
 
     /// <summary>
@@ -30,4 +30,21 @@ public class Audio : MonoBehaviour
         }
     } 
 
+    /// <summary>
+    /// Set player that the audio listener follows
+    /// </summary>
+    /// <param name="frog"></param>
+    public void SetPlayer(GameObject frog)
+    {
+        currentPlayer = frog;
+    }
+
+    /// <summary>
+    /// Set location to the location of the player, but base the rotation on the rotation of the camera
+    /// </summary>
+    void FollowPlayer()
+    {
+        transform.position = currentPlayer.transform.position;
+        transform.rotation = Camera.main.transform.rotation;
+    }
 }

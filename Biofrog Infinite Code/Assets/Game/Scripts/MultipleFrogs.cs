@@ -95,7 +95,8 @@ public class MultipleFrogs : MonoBehaviour
         //let the camera follow the active frog
         followingCamera.GetComponent<CameraFollowNew>().player = activefrog;
         //move audiolistener to new frog (false ==> do not keep world position)
-        audioListener.transform.SetParent(activefrog.transform, false);
+        //audioListener.transform.SetParent(activefrog.transform, false);
+        audioListener.GetComponent<Audio>().SetPlayer(activefrog);
 
         //have Inputmanager change (kill) right frog
         eventManager.GetComponent<InputManager>().player = activefrog;
