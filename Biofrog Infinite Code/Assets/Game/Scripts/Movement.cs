@@ -10,7 +10,11 @@ public class Movement : MonoBehaviour
     //turn towards mouse position
     Ray cameraRay;                // The ray that is cast from the camera to the mouse position
     RaycastHit cameraRayHit;    // The object that the ray hits
-    Vector3 targetPosition; 
+    Vector3 targetPosition;
+
+    public AudioClip squeakClip, footstepClip;
+    AudioSource audSource;
+
 
     //characterController movement
     public float speed = 6.0f;
@@ -29,6 +33,7 @@ public class Movement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         audioListener = GameObject.Find("audioListener");
+        audSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -155,6 +160,17 @@ public class Movement : MonoBehaviour
         }
 
         footPrint.SetActive(true);
+        FootstepSound();
+    }
+
+    /// <summary>
+    /// play footstep sound
+    /// </summary>
+    public void FootstepSound()
+    {
+        audSource.volume = 0.1f;
+        audSource.clip = footstepClip;
+        audSource.Play();
     }
 
     /// <summary>
@@ -162,8 +178,9 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Squeak()
     {
-        AudioSource squeak = GetComponent<AudioSource>();
-        audioListener.GetComponent<Audio>().PlaySound(squeak);
+        audSource.volume = 1.0f;
+        audSource.clip = squeakClip;
+        audSource.Play();
     }
 
 }

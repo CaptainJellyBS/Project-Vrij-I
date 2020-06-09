@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a63abc64ce7834479b289cffc73993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeakClip: {fileID: 8300000, guid: 7df1e9ee7352b9b4bb0fa26585b00b9a, type: 3}
+  footstepClip: {fileID: 8300000, guid: 2ab219eb61a362f4bac9a5650948e39e, type: 3}
   speed: 6
   jumpSpeed: 8
   gravity: 20
