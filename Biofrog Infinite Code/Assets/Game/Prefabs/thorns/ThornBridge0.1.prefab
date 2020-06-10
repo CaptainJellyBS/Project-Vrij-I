@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7945959685710966857}
   - component: {fileID: 1377748005950540415}
   - component: {fileID: 4621317638422050438}
+  - component: {fileID: -5072112222318379108}
+  - component: {fileID: 3507766330896932556}
   m_Layer: 0
   m_Name: ThornBridge0.1
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-5072112222318379108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6349760898268562010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e134d0da93e19349a3cfc8cd373c54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &3507766330896932556
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6349760898268562010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6255687079079774844, guid: 43bfb8c9883137542accfe5a4b937b8c, type: 3}

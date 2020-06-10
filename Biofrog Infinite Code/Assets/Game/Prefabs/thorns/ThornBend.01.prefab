@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 555333073663992386}
   - component: {fileID: 8858570313417070708}
   - component: {fileID: 3013892937885967501}
+  - component: {fileID: 1418035590241560222}
+  - component: {fileID: -6842294532784617132}
   m_Layer: 0
   m_Name: ThornBend.01
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1418035590241560222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598281149472985169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e134d0da93e19349a3cfc8cd373c54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &-6842294532784617132
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598281149472985169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6255687079079774844, guid: c7b66e2f574bd7d459207d949706a69f, type: 3}

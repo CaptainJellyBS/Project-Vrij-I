@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8444674293502942958}
   - component: {fileID: 606442476472018136}
   - component: {fileID: 6581462557429159969}
+  - component: {fileID: 5624251248151713691}
+  - component: {fileID: 1235061895409188514}
   m_Layer: 0
   m_Name: ThornLong0.1
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5624251248151713691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857936352824225021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e134d0da93e19349a3cfc8cd373c54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &1235061895409188514
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857936352824225021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6255687079079774844, guid: 96d9c59469feb7a48b83b71ec18b5483, type: 3}

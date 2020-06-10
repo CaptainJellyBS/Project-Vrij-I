@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 153090998}
   - component: {fileID: -8706783164230542502}
   - component: {fileID: 4958764407508923192}
+  - component: {fileID: 752873972548663959}
   m_Layer: 0
   m_Name: tempPlayer
   m_TagString: Player
@@ -377,6 +378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaf5bb02d5e717458d92dee40c99e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &752873972548663959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786112592515426247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53280807, y: 0.32773256, z: 0.7494626}
+  m_Center: {x: 0.004611507, y: -0.36758018, z: 0.016217053}
 --- !u!95 &8471101078351938496
 Animator:
   serializedVersion: 3
