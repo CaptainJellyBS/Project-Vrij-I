@@ -157,7 +157,7 @@ public class Movement : MonoBehaviour
 
 
 
-        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.4f, 0)), transform.rotation);
+        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.3f, 0)), transform.rotation);
 
         // Rotate to align with terrain (stolen from https://medium.com/thefloatingpoint/ground-hugging-vehicles-in-unity-3d-50115f421005)
         raycastPoint = footPrint.transform;
