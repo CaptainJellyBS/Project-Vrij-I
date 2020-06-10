@@ -25,6 +25,9 @@ public class Movement : MonoBehaviour
 
     //leave footprints
     public GameObject footsteps;
+    private RaycastHit hit;
+    public Transform raycastPoint;
+    RaycastHit hitCast;
 
     //Listen to sound
     public GameObject audioListener;
@@ -75,6 +78,7 @@ public class Movement : MonoBehaviour
                     //stop moving
                     moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
                 }
+
     }
 
     /// <summary>
@@ -150,7 +154,19 @@ public class Movement : MonoBehaviour
     public void LeaveFootprint()
     {
         Color c = GetComponent<FrogColour>().color;
-        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.99f, 0)), transform.rotation);
+
+
+
+        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.4f, 0)), transform.rotation);
+
+        // Rotate to align with terrain (stolen from https://medium.com/thefloatingpoint/ground-hugging-vehicles-in-unity-3d-50115f421005)
+        raycastPoint = footPrint.transform;
+        Physics.Raycast(raycastPoint.position, Vector3.down, out hitCast);
+
+        footPrint.transform.up -= (transform.up - hitCast.normal);
+        footPrint.transform.rotation = transform.rotation;
+
+
         footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
         footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
 

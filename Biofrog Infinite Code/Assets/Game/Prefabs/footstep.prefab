@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8822418947244817559}
   - component: {fileID: 7939768242054603546}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3712503883409083585}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: footstep
-  m_TagString: Untagged
+  m_TagString: Footstep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3363360365220416039}
   - component: {fileID: 572918369161946588}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,10 +299,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a12375c549b785c4785830dc7201970b, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 8109c80746eb6f045a537d978297fd14,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8109c80746eb6f045a537d978297fd14,
         type: 3}
       propertyPath: m_Name
       value: FEETSIES
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8109c80746eb6f045a537d978297fd14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8109c80746eb6f045a537d978297fd14, type: 3}

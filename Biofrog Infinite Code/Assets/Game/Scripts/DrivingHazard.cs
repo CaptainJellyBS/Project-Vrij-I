@@ -42,7 +42,10 @@ public class DrivingHazard : Hazard
     /// Ugly movement method that just moves the thing directly to the next patrol point. Should probably use navmesh or some fixed route but designer life ;_;
     /// </summary>
     void Movement()
-    {
+    { 
+        //possibly useful codesnippet to maybe use later
+        //transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
+
         transform.position += (currentPoint.position - transform.position).normalized * MoveSpeed * Time.deltaTime;
     }
 
