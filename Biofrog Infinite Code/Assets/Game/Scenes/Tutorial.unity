@@ -3455,6 +3455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeShort (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 379048347902130590, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3682255294197484429, guid: 4dcb1f216b858c54ab5d912d231f641b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3524,6 +3529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 135.68434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082574675417953301, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcb1f216b858c54ab5d912d231f641b, type: 3}
@@ -7579,7 +7589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &718892160
 Light:
   m_ObjectHideFlags: 0
@@ -14508,6 +14518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeShort (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 379048347902130590, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3682255294197484429, guid: 4dcb1f216b858c54ab5d912d231f641b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14577,6 +14592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 135.68434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082574675417953301, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcb1f216b858c54ab5d912d231f641b, type: 3}
@@ -18995,6 +19015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeShort (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 379048347902130590, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3682255294197484429, guid: 4dcb1f216b858c54ab5d912d231f641b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19064,6 +19089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 135.68434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082574675417953301, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcb1f216b858c54ab5d912d231f641b, type: 3}
