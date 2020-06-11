@@ -3902,6 +3902,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tegeltest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2c0c46e229ef3cf4bb378e3952e05660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0c46e229ef3cf4bb378e3952e05660, type: 3}
 --- !u!1001 &349406306
@@ -4990,6 +4995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tegeltest (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2c0c46e229ef3cf4bb378e3952e05660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0c46e229ef3cf4bb378e3952e05660, type: 3}
@@ -16103,6 +16113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tegeltest
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2c0c46e229ef3cf4bb378e3952e05660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0c46e229ef3cf4bb378e3952e05660, type: 3}
