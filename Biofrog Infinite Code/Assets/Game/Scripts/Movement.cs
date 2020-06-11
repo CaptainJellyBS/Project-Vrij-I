@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     //leave footprints
     public GameObject footsteps;
     private RaycastHit hit;
-    public Transform raycastPoint;
+    private Vector3 raycastPoint;
     RaycastHit hitCast;
 
     //Listen to sound
@@ -154,21 +154,42 @@ public class Movement : MonoBehaviour
     public void LeaveFootprint()
     {
         Color c = GetComponent<FrogColour>().color;
-
-
-
-        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.3f, 0)), transform.rotation);
-
-        // Rotate to align with terrain (stolen from https://medium.com/thefloatingpoint/ground-hugging-vehicles-in-unity-3d-50115f421005)
-        raycastPoint = footPrint.transform;
+        
+        /*
+        //raycast to get normal vector of terrain (partly stolen from https://medium.com/thefloatingpoint/ground-hugging-vehicles-in-unity-3d-50115f421005)
+        raycastPoint = transform;
         Physics.Raycast(raycastPoint.position, Vector3.down, out hitCast);
+        */
 
-        footPrint.transform.up -= (transform.up - hitCast.normal);
-        footPrint.transform.rotation = transform.rotation;
+        GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.7f, 0)), transform.rotation);
+
+        /*
+        // Rotate to align with terrain 
+        float normalAngle = Vector3.Angle(footPrint.transform.up, hitCast.normal);
+        Debug.Log(normalAngle);
+        //footPrint.transform.rotation = Quaternion.AngleAxis(normalAngle, Vector3.left);
+        //footPrint.transform.rotation = transform.rotation;
+
+        //footPrint.transform.rotation = Quaternion.Euler(footPrint.transform.rotation.x, footPrint.transform.rotation.y, normalAngle);
+        */
+
+        foreach (Transform feetsy in footPrint.GetComponentsInChildren<Transform>())
+        {
+            if (feetsy.GetComponent<Light>() == null)
+            { 
+            raycastPoint = feetsy.position + Vector3.up;
+            Physics.Raycast(raycastPoint, Vector3.down, out hitCast);
+            feetsy.position = hitCast.point;
+            }
+
+        }
 
 
-        footPrint.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
-        footPrint.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
+        foreach (Renderer feetsyRend in footPrint.GetComponentsInChildren<Renderer>())
+        {
+            feetsyRend.material.SetColor("_EmissionColor", c);
+            feetsyRend.material.SetColor("_Color", c);
+        }
 
         foreach (Light l in footPrint.GetComponentsInChildren<Light>())
         {
