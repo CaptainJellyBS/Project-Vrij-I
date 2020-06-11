@@ -38,5 +38,7 @@ public class MenuButtons : MonoBehaviour
         AudioSource squeak = GetComponent<AudioSource>();
         GameObject.Find("audioListener").GetComponent<Audio>().PlaySound(squeak);
         SceneManager.LoadScene("MainMenu");
+
+        FindObjectOfType<InputManager>().UnPause();
     }
 }

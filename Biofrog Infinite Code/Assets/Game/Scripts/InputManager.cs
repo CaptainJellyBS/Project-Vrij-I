@@ -41,9 +41,7 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
-                GamePaused = false;
-                pauseMenu.SetActive(false);
+                UnPause();
             }
         }
 
@@ -59,6 +57,13 @@ public class InputManager : MonoBehaviour
             player.GetComponent<Death>().Die();
         }
 
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+        GamePaused = false;
+        pauseMenu.SetActive(false);
     }
 
 }
