@@ -74,7 +74,6 @@ public class DrivingHazard : Hazard
 
     IEnumerator SlowTurn(Vector3 direction)
     {
-        Debug.Log("Quick, print something!");
         float oldSpeed = MoveSpeed;
         Quaternion rot = transform.rotation;
         MoveSpeed = 0;
@@ -82,7 +81,6 @@ public class DrivingHazard : Hazard
         float t = 0;
         while (t < 1.0f)
         {
-            Debug.Log("Oh dear it's " + t);
             t += Time.deltaTime * turnSpeed;
 
             transform.rotation = Quaternion.Lerp(rot, Quaternion.LookRotation(direction - transform.position, Vector3.up), t);
