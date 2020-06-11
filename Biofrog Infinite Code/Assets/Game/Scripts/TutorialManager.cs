@@ -15,6 +15,10 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(Tutorial());
     }
 
+    /// <summary>
+    /// Coroutine for the Tutorial text appearing and disappearing
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Tutorial()
     {
         LeftMouseText.enabled = true;
@@ -78,6 +82,11 @@ public class TutorialManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Coroutine to fade in text
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
     IEnumerator TextFadeIn(Text text)
     {
         float t = 0;
@@ -89,6 +98,11 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine to fade out text
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
     IEnumerator TextFadeOut(Text text)
     {
         float t = 1.0f;
