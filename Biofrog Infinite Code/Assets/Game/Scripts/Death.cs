@@ -55,10 +55,20 @@ public class Death : MonoBehaviour
             Color color = GetComponent<Light>().color;
             l.color = color;
         }
+
+        ResetFireflies();
     }
 
     void NextFrog()
     {
         whichFrog.GetComponent<MultipleFrogs>().NextFrog();
+    }
+
+    void ResetFireflies()
+    {
+        foreach(FireFly f in FindObjectsOfType<FireFly>())
+        {
+            f.PlayerDeath();
+        }
     }
 }

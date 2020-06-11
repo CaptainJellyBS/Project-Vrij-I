@@ -39,17 +39,20 @@ public class FireFly : MonoBehaviour
     {
         isOnPlayer = true;
         player = p;
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
 
         Debug.Log("picked up");
 
     }
 
     /// <summary>
-    /// Unused (yet)
+    /// When the player dies, go back to earlier state
     /// </summary>
     public void PlayerDeath()
     {
-        Destroy(this.gameObject);
+        Debug.Log("oof ouch owie");
+        isOnPlayer = false;
+        GetComponent<SphereCollider>().enabled = true;
+        player = null;
     }
 }

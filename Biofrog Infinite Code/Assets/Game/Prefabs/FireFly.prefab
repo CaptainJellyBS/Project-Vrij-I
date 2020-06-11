@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4359119801335317109}
-  - component: {fileID: 4359119801335317111}
   - component: {fileID: 4359119801335317110}
+  - component: {fileID: 770205573218424866}
   m_Layer: 0
   m_Name: FireFly
   m_TagString: Collectible
@@ -34,19 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4359119801335317111
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4359119801335317108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4359119801335317110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnPlayer: 0
   offset: {x: 0, y: 2, z: 0}
+--- !u!135 &770205573218424866
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4359119801335317108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4359119802068032360
 GameObject:
   m_ObjectHideFlags: 0
