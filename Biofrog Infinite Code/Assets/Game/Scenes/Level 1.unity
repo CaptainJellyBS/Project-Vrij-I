@@ -1646,12 +1646,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 810064374}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &177688644 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1250831721, guid: 99730abbf85cb61449737d59543cd874,
-    type: 3}
-  m_PrefabInstance: {fileID: 326980456}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &179980626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9593,7 +9587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolPoints:
   - {fileID: 2021240312}
-  - {fileID: 177688644}
+  - {fileID: 1451049137}
   - {fileID: 813178045}
   - {fileID: 1451049137}
   currentPoint: {fileID: 0}
