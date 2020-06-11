@@ -10,9 +10,7 @@ public class ExitOnClick : MonoBehaviour
     }
 
     public void ExitGame()
-    {
-        AudioSource squeak = GetComponent<AudioSource>();
-        GameObject.Find("audioListener").GetComponent<Audio>().PlaySound(squeak);
+    {       
         Application.Quit();
     }
 }
