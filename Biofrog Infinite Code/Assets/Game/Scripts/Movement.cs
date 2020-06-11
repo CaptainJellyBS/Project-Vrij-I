@@ -119,12 +119,12 @@ public class Movement : MonoBehaviour
         // if the distance to be jumped isn't too small
         if (distance > 4.5)
         {
-            Debug.Log(distance);
+            //Debug.Log(distance);
 
             // Distance along the y axis between objects
             float yOffset = transform.position.y - targetPosition.y;
 
-            Debug.Log(yOffset);
+            //Debug.Log(yOffset);
 
             //fancy math magic
             float angle = Mathf.Max(45, Mathf.Min(45 - yOffset * 10, 80)) * Mathf.Deg2Rad;
