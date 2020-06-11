@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 153090998}
   - component: {fileID: -8706783164230542502}
   - component: {fileID: 4958764407508923192}
-  - component: {fileID: 752873972548663959}
+  - component: {fileID: 7609869640276167805}
   m_Layer: 2
   m_Name: tempPlayer
   m_TagString: Player
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaf5bb02d5e717458d92dee40c99e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &752873972548663959
+--- !u!65 &7609869640276167805
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -390,8 +390,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6394817, y: 0.29372036, z: 0.7094294}
-  m_Center: {x: 0.019790918, y: -0.3544802, z: 0.0124156475}
+  m_Size: {x: 0.9265474, y: 0.3692397, z: 0.78905946}
+  m_Center: {x: 0.0028250962, y: -0.33721703, z: -0.00753358}
 --- !u!95 &8471101078351938496
 Animator:
   serializedVersion: 3
