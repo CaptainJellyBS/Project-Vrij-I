@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     public Text LeftMouseText, RightMouseText, CameraText, LilyText;
-    public float fadeSpeed = 1.0f;
+    public float fadeTime = 1.5f;
     void Start()
     {
         StartCoroutine(Tutorial());
@@ -28,7 +28,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         StartCoroutine(TextFadeOut(LeftMouseText));
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fadeTime);
         //Hide first text, show second text
 
         LeftMouseText.enabled = false;
@@ -45,7 +45,7 @@ public class TutorialManager : MonoBehaviour
 
         StartCoroutine(TextFadeOut(RightMouseText));
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fadeTime);
 
         RightMouseText.enabled = false;
 
@@ -61,7 +61,7 @@ public class TutorialManager : MonoBehaviour
 
         StartCoroutine(TextFadeOut(CameraText));
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fadeTime);
         //Hide text, show next text
         CameraText.enabled = false;
 
@@ -72,7 +72,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         StartCoroutine(TextFadeOut(LilyText));
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fadeTime);
         LilyText.enabled = false;
         //Hide text
 
@@ -83,7 +83,7 @@ public class TutorialManager : MonoBehaviour
         float t = 0;
         while(t<1.0f)
         {
-            t += Time.deltaTime * fadeSpeed;
+            t += Time.deltaTime * (1 / fadeTime);
             text.color = new Color(text.color.r, text.color.g, text.color.b, t);
             yield return null;
         }
@@ -94,7 +94,7 @@ public class TutorialManager : MonoBehaviour
         float t = 1.0f;
         while (t > 0)
         {
-            t -= Time.deltaTime * fadeSpeed;
+            t -= Time.deltaTime * (1/fadeTime);
             text.color = new Color(text.color.r, text.color.g, text.color.b, t);
 
             yield return null;
