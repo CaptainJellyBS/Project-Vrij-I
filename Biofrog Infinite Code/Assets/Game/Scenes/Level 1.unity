@@ -9599,6 +9599,7 @@ MonoBehaviour:
   currentPoint: {fileID: 0}
   nextPoint: 0
   DistanceToPoint: 1
+  turnSpeed: 0.5
   MoveSpeed: 30
 --- !u!65 &844401666
 BoxCollider:

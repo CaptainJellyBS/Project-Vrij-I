@@ -14,6 +14,10 @@ public class DrivingHazard : Hazard
     float DistanceToPoint;
 
     [SerializeField]
+    [Range(0, 2)]
+    float turnSpeed;
+
+    [SerializeField]
     [Range(0, 500)]
     float MoveSpeed;
     // Start is called before the first frame update
@@ -23,7 +27,8 @@ public class DrivingHazard : Hazard
         if (patrolPoints.Length > 0)
         {
             currentPoint = patrolPoints[nextPoint];
-            transform.LookAt(currentPoint.position);
+            //transform.LookAt(currentPoint.position);
+            StartCoroutine(SlowTurn(currentPoint.position));
 
         }
     }
@@ -63,6 +68,27 @@ public class DrivingHazard : Hazard
         nextPoint %= patrolPoints.Length;
         currentPoint = patrolPoints[nextPoint];
 
-        transform.LookAt(currentPoint.position);
+        StartCoroutine(SlowTurn(currentPoint.position));
+        //transform.LookAt(currentPoint.position); 
+    }
+
+    IEnumerator SlowTurn(Vector3 direction)
+    {
+        Debug.Log("Quick, print something!");
+        float oldSpeed = MoveSpeed;
+        Quaternion rot = transform.rotation;
+        MoveSpeed = 0;
+
+        float t = 0;
+        while (t < 1.0f)
+        {
+            Debug.Log("Oh dear it's " + t);
+            t += Time.deltaTime * turnSpeed;
+
+            transform.rotation = Quaternion.Lerp(rot, Quaternion.LookRotation(direction - transform.position, Vector3.up), t);
+            yield return null;
+        }
+
+        MoveSpeed = oldSpeed;
     }
 }
