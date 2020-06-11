@@ -37,8 +37,13 @@ public class Death : MonoBehaviour
 
         Color c = GetComponent<FrogColour>().color;
 
-        splatt.GetComponentInChildren<Renderer>().material.SetColor("_EmissionColor", c);
-        splatt.GetComponentInChildren<Renderer>().material.SetColor("_Color", c);
+        foreach (Renderer r in splatt.GetComponentsInChildren<Renderer>())
+        {
+            r.material.SetColor("_EmissionColor", c);
+            r.material.SetColor("_Color", c);
+        }
+
+
         foreach (Light l in splatt.GetComponentsInChildren<Light>())
         {
             l.color = c;
