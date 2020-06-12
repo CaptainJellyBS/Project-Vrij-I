@@ -4819,10 +4819,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 621075201126923366, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 621075201126923366, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.928191
+      objectReference: {fileID: 0}
+    - target: {fileID: 621075201126923366, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.928191
+      objectReference: {fileID: 0}
+    - target: {fileID: 621075201126923366, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.928191
+      objectReference: {fileID: 0}
     - target: {fileID: 2168954590237162465, guid: d43dfe037501bc246ab775e9ee3b8592,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 470
+      value: 468.3
       objectReference: {fileID: 0}
     - target: {fileID: 2168954590237162465, guid: d43dfe037501bc246ab775e9ee3b8592,
         type: 3}
@@ -4832,7 +4852,7 @@ PrefabInstance:
     - target: {fileID: 2168954590237162465, guid: d43dfe037501bc246ab775e9ee3b8592,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 485
+      value: 485.9
       objectReference: {fileID: 0}
     - target: {fileID: 2168954590237162465, guid: d43dfe037501bc246ab775e9ee3b8592,
         type: 3}
@@ -4899,6 +4919,21 @@ PrefabInstance:
       propertyPath: finishTextFuckYouUnity
       value: 
       objectReference: {fileID: 1541161707}
+    - target: {fileID: 6285238692980107058, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502218485126492506, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502218485126492506, guid: d43dfe037501bc246ab775e9ee3b8592,
+        type: 3}
+      propertyPath: m_Range
+      value: 14.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d43dfe037501bc246ab775e9ee3b8592, type: 3}
 --- !u!1 &356327799
