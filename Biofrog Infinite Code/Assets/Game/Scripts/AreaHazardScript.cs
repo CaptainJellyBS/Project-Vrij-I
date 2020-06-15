@@ -14,12 +14,13 @@ public class AreaHazardScript : Hazard
     void Start()
     {
         herons = GameObject.FindGameObjectsWithTag("Heron");
-        heronMaterials = herons[0].GetComponent<Renderer>().materials;
-        heronMaterials[1].DisableKeyword("_EMISSION");
+
 
         foreach (GameObject heron in herons)
         {
-            
+            heronMaterials = heron.GetComponent<Renderer>().materials;
+            heronMaterials[1].DisableKeyword("_EMISSION");
+
             foreach (Light l in heron.GetComponentsInChildren<Light>(true))
             {
                 l.enabled = false;
