@@ -234,7 +234,7 @@ public class Movement : MonoBehaviour
         //Debug.Log(distance);
 
         //return to idle if the frog gets close enough to the ground
-        if (distance < 5f)
+        if (distance < 6f)
         {
             GetComponentInChildren<Character_Animation>().Grounded();
         }

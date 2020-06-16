@@ -41,6 +41,13 @@ public class Character_Animation : MonoBehaviour
 
     public bool InIdle()
     {
-        return Kikker.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle1");
+        if (!Kikker.IsInTransition(0))
+        {
+            return Kikker.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle1");
+        } 
+        else
+        {
+            return true;
+        }
     }
 }
