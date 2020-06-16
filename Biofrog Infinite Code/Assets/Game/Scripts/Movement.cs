@@ -49,6 +49,10 @@ public class Movement : MonoBehaviour
         {
             Turn();
             Move();
+            if (!GetComponentInChildren<Character_Animation>().InIdle())
+            {
+                GetComponentInChildren<Character_Animation>().Grounded();
+            }
         }
         
         //make sure movement follows time, not framerate

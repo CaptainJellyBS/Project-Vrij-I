@@ -38,4 +38,9 @@ public class Character_Animation : MonoBehaviour
             Kikker.ResetTrigger("smallJump");
             Kikker.ResetTrigger("largeJump");
     }
+
+    public bool InIdle()
+    {
+        return Kikker.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle1");
+    }
 }
