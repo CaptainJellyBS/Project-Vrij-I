@@ -25,9 +25,12 @@ public class Movement : MonoBehaviour
 
     //leave footprints
     public GameObject footsteps;
-    private RaycastHit hit;
     private Vector3 raycastPoint;
-    RaycastHit hitCast;
+    public RaycastHit hitCastFeetsy;
+
+    //animate jump
+    private Vector3 raycastPointLanding;
+    private RaycastHit hitLandingGround;
 
     //Listen to sound
     public GameObject audioListener;
@@ -47,10 +50,19 @@ public class Movement : MonoBehaviour
             Turn();
             Move();
         }
-
+        
         //make sure movement follows time, not framerate
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        //check distance to ground when frog is falling
+        if (characterController.velocity.y < 0)
+        {
+            ReadyLanding();
+        }
     }
 
     private void Move()
@@ -158,14 +170,14 @@ public class Movement : MonoBehaviour
         /*
         //raycast to get normal vector of terrain (partly stolen from https://medium.com/thefloatingpoint/ground-hugging-vehicles-in-unity-3d-50115f421005)
         raycastPoint = transform;
-        Physics.Raycast(raycastPoint.position, Vector3.down, out hitCast);
+        Physics.Raycast(raycastPoint.position, Vector3.down, out hitCastFeetsy);
         */
 
         GameObject footPrint = Instantiate(footsteps, transform.position + (transform.rotation * new Vector3(0, -0.7f, 0)), transform.rotation);
 
         /*
         // Rotate to align with terrain 
-        float normalAngle = Vector3.Angle(footPrint.transform.up, hitCast.normal);
+        float normalAngle = Vector3.Angle(footPrint.transform.up, hitCastFeetsy.normal);
         Debug.Log(normalAngle);
         //footPrint.transform.rotation = Quaternion.AngleAxis(normalAngle, Vector3.left);
         //footPrint.transform.rotation = transform.rotation;
@@ -178,8 +190,8 @@ public class Movement : MonoBehaviour
             if (feetsy.GetComponent<Light>() == null)
             { 
             raycastPoint = feetsy.position + Vector3.up;
-            Physics.Raycast(raycastPoint, Vector3.down, out hitCast);
-            feetsy.position = hitCast.point;
+            Physics.Raycast(raycastPoint, Vector3.down, out hitCastFeetsy);
+            feetsy.position = hitCastFeetsy.point;
             }
 
         }
@@ -198,6 +210,30 @@ public class Movement : MonoBehaviour
 
         footPrint.SetActive(true);
         FootstepSound();
+    }
+
+    /// <summary>
+    /// Get ready for landing when the frog is close to the ground
+    /// </summary>
+    public void ReadyLanding()
+    {
+        float distance = 1;
+
+        raycastPointLanding = transform.position;
+        Physics.Raycast(raycastPointLanding, characterController.velocity, out hitLandingGround);
+
+        //Debug.Log(characterController.velocity);
+
+        //distance between frog and ground 
+        distance = Vector3.Distance(transform.position, hitLandingGround.point);
+
+        //Debug.Log(distance);
+
+        //return to idle if the frog gets close enough to the ground
+        if (distance < 5f)
+        {
+            GetComponentInChildren<Character_Animation>().Grounded();
+        }
     }
 
     /// <summary>

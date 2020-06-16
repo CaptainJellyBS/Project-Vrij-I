@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character_Animation : MonoBehaviour
 {
     public Animator Kikker;
-    public CharacterController PlayerMovement;
+    //public CharacterController PlayerMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -17,17 +17,25 @@ public class Character_Animation : MonoBehaviour
     /// </summary>
     public void SmallJumpAnimation()
     {
-            Debug.Log("jomp");
-            Kikker.ResetTrigger("SmallJump");
-            Kikker.SetTrigger("SmallJump");
+            Kikker.SetBool("isGrounded", false);
+            Kikker.SetTrigger("smallJump");
     }
     /// <summary>
     /// play large  jump animation when player jumps
     /// </summary>
     public void LargeJumpAnimation()
     {
-            Debug.Log("jomp");
-            Kikker.ResetTrigger("LargeJump");
-            Kikker.SetTrigger("LargeJump");
+            Kikker.SetBool("isGrounded", false);
+            Kikker.SetTrigger("largeJump");
+    }
+
+    /// <summary>
+    /// transition back to idle animation when frog is on the ground
+    /// </summary>
+    public void Grounded()
+    {
+            Kikker.SetBool("isGrounded", true);
+            Kikker.ResetTrigger("smallJump");
+            Kikker.ResetTrigger("largeJump");
     }
 }
