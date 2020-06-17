@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class VolumeSlider : MonoBehaviour
 {
     public Text volText;
+    public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        slider.value = AudioListener.volume;
+        volText.text = ((int)(AudioListener.volume * 100)).ToString();
+
     }
 
     /// <summary>
