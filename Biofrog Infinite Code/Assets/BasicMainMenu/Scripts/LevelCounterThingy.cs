@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelCounterThingy : MonoBehaviour
 {
     public int highestAchievedLevel = 0;
+    Texture2D cursor;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += CheckIfLevelLarger;
+
     }
 
     void OnDisable()

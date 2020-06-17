@@ -9,6 +9,7 @@ public class MultipleFrogs : MonoBehaviour
     //which frog is active
     public int frogNumber;
     public GameObject activefrog;
+    Texture2D cursor;
 
     //gameobjects that need to know which frog is active
     public GameObject followingCamera;
