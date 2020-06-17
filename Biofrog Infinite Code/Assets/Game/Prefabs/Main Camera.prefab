@@ -88,8 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f16740c06be0ee45af112e5dad35602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -28, y: 40, z: -28}
+  offset: {x: -35, y: 50, z: -35}
   player: {fileID: 0}
+  heightOffset: 50
   cameraRotateSpeed: 40
 --- !u!114 &174821239
 MonoBehaviour:
