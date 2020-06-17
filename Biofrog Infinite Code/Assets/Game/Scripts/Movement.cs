@@ -116,7 +116,7 @@ public class Movement : MonoBehaviour
             // else, if that object is the ground or anything you can jump on...
             else if (cameraRayHit.transform.tag == "Ground" || cameraRayHit.transform.tag == "Obstacle" || cameraRayHit.transform.tag == "Finish" || cameraRayHit.transform.tag == "Hazard")
             {
-                // ...make the cube rotate (only on the Y axis) to face the ray hit's position 
+                // ...make the player rotate (only on the Y axis) to face the ray hit's position 
                 targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
                 transform.LookAt(targetPosition);
             }

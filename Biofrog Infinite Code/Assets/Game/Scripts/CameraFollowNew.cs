@@ -9,6 +9,8 @@ public class CameraFollowNew : MonoBehaviour
 
     //change camera height
     private float height;
+    public float heightOffset;
+    private float lerpOffset = 0.02f;
     private Vector3 heightVector;
 
     //rotation
@@ -36,7 +38,7 @@ public class CameraFollowNew : MonoBehaviour
     {
         HandleInput();
         //change the y offset to match player height
-        offset.y = Vector3.Lerp(transform.position, heightVector, 0.02f).y + 0.8f; // y offset at groundlevel is 40, 0.8/0.02 = 40
+        offset.y = Vector3.Lerp(transform.position, heightVector, lerpOffset).y + (lerpOffset * heightOffset); // y offset at groundlevel is 40, 0.8/0.02 = 40
     }
 
     void HandleInput()
