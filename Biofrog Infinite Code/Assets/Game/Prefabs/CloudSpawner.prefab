@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1868387930f8a459a205703bad9630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudTimeMin: 3
-  cloudTimeMax: 7
+  cloudTimeMin: 1
+  cloudTimeMax: 4.5
   cloudSpeedMin: 7
   cloudSpeedMax: 14
-  maxVarianceX: 175
+  maxVarianceX: 160
   maxVarianceY: 120
   maxVarianceZ: 0
   direction: {x: 0, y: 0, z: 1}
