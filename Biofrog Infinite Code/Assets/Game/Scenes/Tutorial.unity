@@ -16824,6 +16824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130810318}
     m_Modifications:
+    - target: {fileID: 2384852824418367162, guid: 8ce153c216bc8c14a99660768aea1b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6711168684580057139, guid: 8ce153c216bc8c14a99660768aea1b75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16898,6 +16903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PipeBend
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744367838093656608, guid: 8ce153c216bc8c14a99660768aea1b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ce153c216bc8c14a99660768aea1b75, type: 3}
@@ -19054,6 +19064,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeShort (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 379048347902130590, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3682255294197484429, guid: 4dcb1f216b858c54ab5d912d231f641b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19123,6 +19138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 286.63345
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082574675417953301, guid: 4dcb1f216b858c54ab5d912d231f641b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcb1f216b858c54ab5d912d231f641b, type: 3}
