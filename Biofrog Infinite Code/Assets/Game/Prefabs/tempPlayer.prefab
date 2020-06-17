@@ -32,7 +32,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Kikker: {fileID: 3426166113346441188}
-  PlayerMovement: {fileID: 4786112592515426265}
 --- !u!1 &4786112592515426247
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +141,6 @@ MonoBehaviour:
   gravity: 20
   footsteps: {fileID: 3712503883409083586, guid: 812cd0049288d6d4ba3dcd2b70208860,
     type: 3}
-  raycastPoint: {fileID: 0}
   audioListener: {fileID: 0}
 --- !u!143 &4786112592515426265
 CharacterController:
@@ -175,7 +173,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.08235294, g: 0.68235296, b: 0.10588236, a: 1}
   m_Intensity: 1.5
-  m_Range: 6
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -424,7 +422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Kikker: {fileID: 8471101078351938496}
-  PlayerMovement: {fileID: 4786112592515426265}
 --- !u!1001 &92132511178844000
 PrefabInstance:
   m_ObjectHideFlags: 0
