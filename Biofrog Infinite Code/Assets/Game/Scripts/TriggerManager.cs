@@ -34,7 +34,7 @@ public class TriggerManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("AreaHazard"))
         {
-            Debug.Log(this.gameObject);
+            //Debug.Log(this.gameObject);
             other.gameObject.GetComponent<AreaHazardScript>().ActivateHeron(this.gameObject);
         }
     }
