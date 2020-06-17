@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MultipleFrogs : MonoBehaviour
 {
@@ -68,7 +69,8 @@ public class MultipleFrogs : MonoBehaviour
         }
         else
         {
-            GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
         }
     }
 
@@ -84,7 +86,8 @@ public class MultipleFrogs : MonoBehaviour
         frogNumber++;
         if (frogNumber == frogs.Length)
         {
-            GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //GameObject.Find("finish").GetComponent<Finish>().finishTextFuckYouUnity.SetActive(true);
         }
     }
 
